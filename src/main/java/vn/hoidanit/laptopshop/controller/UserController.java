@@ -7,19 +7,36 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import vn.hoidanit.laptopshop.service.UserService;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
-@RestController
+@Controller
 public class UserController {
-
-    // DI : dependency injection
     private UserService userService;
 
     public UserController(UserService userService) {
         this.userService = userService;
     }
 
-    @GetMapping("")
+    @RequestMapping("/hoidanit")
     public String getHomePage() {
-        return this.userService.handHello();
+        String test = this.userService.handHello();
+        return "eric.html";
     }
 }
+
+// @RestController
+// public class UserController {
+
+// // DI : dependency injection
+// private UserService userService;
+
+// public UserController(UserService userService) {
+// this.userService = userService;
+// }
+
+// @GetMapping("")
+// public String getHomePage() {
+// return this.userService.handHello();
+// }
+// }
